@@ -1,0 +1,28 @@
+Template Tags
+=============
+
+flag
+----
+
+The `flag` template tag is a shortcut for rendering a form that enables the user
+the post a comment flagging the content represented by a context object.
+
+Example::
+
+    {% load flag_tags %}
+    ...
+    {{ flag blog_post }}
+
+
+set_is_flagged
+--------------
+
+The `set_is_flagged` tag will set a template variable indicating whether or not
+a certain context object has been flagged.
+
+Example::
+
+    {% load flag_tags %}
+    ...
+    {% set_is_flagged blog_post as is_flagged %}
+    <h1>{{ blog_post.title }}<span class="small">{% if is_flagged %}*{% endif %}</span></h1>
