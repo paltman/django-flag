@@ -35,5 +35,7 @@ def flag(request):
     
     if next:
         return HttpResponseRedirect(next)
+    elif request.META.get('HTTP_REFERER', None) is not None:
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
     else:
-        return Http404
+        raise Http404
